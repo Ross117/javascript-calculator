@@ -206,13 +206,23 @@ function attachListeners() {
   const digitBtns = document.querySelectorAll('.digitBtn');
   const operatorBtns = document.querySelectorAll('.operatorBtn');
 
-  Array.from(digitBtns).forEach((btn) => {
-    btn.addEventListener('click', digitBtn);
-  });
+  if (!Array.from) {
+    for (let i = 0; i < digitBtns.length; i++) {
+      digitBtns[i].addEventListener("click", digitBtn);
+    }
 
-  Array.from(operatorBtns).forEach((btn) => {
-    btn.addEventListener('click', operatorBtn);
-  });
+    for (let i = 0; i < operatorBtns.length; i++) {
+      operatorBtns[i].addEventListener("click", operatorBtn);
+    }
+  } else {
+    Array.from(digitBtns).forEach((btn) => {
+      btn.addEventListener("click", digitBtn);
+    });
+
+    Array.from(operatorBtns).forEach((btn) => {
+      btn.addEventListener("click", operatorBtn);
+    });
+  }
 
   document.querySelector('.decimalPnt')
     .addEventListener('click', decimalPntBtn);
