@@ -1,3 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
 .calcContainer {
   background-color: #B2BEB5;
   margin: 50px;
